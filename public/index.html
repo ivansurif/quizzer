@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Submit Data</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="form-check form-switch">
+        <form id="manualForm" class="styled-form">
+        <h1>manualForm</h1>
+        <h2>projectName</h2>
+    <select id="projectName" class="form-select form-select-lg mb-3">
+        <!-- <option selected>Choose an option</option> -->
+        <option selected value="AZ-204">AZ-204 Microsoft Certified: Azure Developer Associate</option>
+        <option value="option2">option2</option>
+        <option value="option3">option3</option>
+      </select>
+    
+    <br>
+
+    <h2>moduleName</h2>
+    <select id="moduleName" class="form-select form-select-lg mb-3">
+        <!-- <option selected>Choose an option</option> -->
+        <option selected value="App Service">App Service</option>
+        <option value="option2">option2</option>
+        <option value="option3">option3</option>
+      </select>
+
+      <br>
+      
+    <h2>questionType</h2>
+        <select id="questionType" class="form-select form-select-sm">
+            <option value="" disabled selected hidden>Choose an option</option>
+            <option value="radio">radio</option>
+            <option value="checkboxes">checkboxes</option>
+            <option value="openAnswer">openAnswer</option>
+            <!-- Add more options as needed -->
+        </select>
+
+    <br/>
+    <br/>
+
+    <h1>questionTitle</h1>
+        <input type="text" id="questionTitle" class="form-control"><br/>
+    <h2>questionText</h2>
+        <!-- <input type="text" id="questionText" class="form-control"><br/> -->
+        <textarea id="questionText" class="form-control" rows="4"></textarea><br/>
+
+    <h3>answerItem1</h3>
+    <!-- <label for="answerItem1">answerItem1</label> -->
+    <input type="text" id="answerItem1" class="form-control">
+    <input class="form-check-label" type="checkbox" role="switch" id="answerItem1IsCorrect">
+    <label class="form-check-label" for="flexSwitchCheckDefault">isCorrect</label>
+    <br/><br/>
+
+    <h3>answerItem2</h3>
+    <input type="text" id="answerItem2" class="form-control">
+    <input class="form-check-label" type="checkbox" role="switch" id="answerItem2IsCorrect">
+    <label class="form-check-label" for="flexSwitchCheckDefault">isCorrect</label>
+    <br/><br/>
+
+    <h3>answerItem3</h3>
+    <input type="text" class="form-control"id="answerItem3">
+    <input class="form-check-label" type="checkbox" role="switch" id="answerItem3IsCorrect">
+    <label class="form-check-label" for="flexSwitchCheckDefault">isCorrect</label>
+    <br/><br/>
+
+    
+    <h3>answerItem4</h3>
+    <input type="text" class="form-control" id="answerItem4">
+    <input class="form-check-label" type="checkbox" role="switch" id="answerItem4IsCorrect">
+    <label class="form-check-label" for="flexSwitchCheckDefault">isCorrect</label>
+    <br/><br/>
+
+
+    <h3>answerItem5</h3>
+    <input type="text" class="form-control" id="answerItem5">
+    <input class="form-check-label" type="checkbox" role="switch" id="answerItem5IsCorrect">
+    <label class="form-check-label" for="flexSwitchCheckDefault">isCorrect</label>
+    <br/><br/>
+   
+      
+
+    <br/>
+    <br/>
+
+    <button type="submit">Submit</button>
+    </form>
+</div>
+
+
+    <form id="dataForm" class="styled-form">
+        <label for="dataField">Enter Data:</label>
+        <input type="text" id="dataField" name="dataField">
+        <button type="submit">Submit</button>
+    </form>
+
+    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</body>
+</html>
