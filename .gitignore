@@ -1,3 +1,7 @@
+# Custom additions
+.DS_Store
+server/questions_backlog
+
 # Logs
 logs
 *.log
