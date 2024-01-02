@@ -57,6 +57,6 @@ app.post('/submit', (req, res) => {
     res.json({ message: 'Data received successfully' });
 });
 
-const PORT =8000;
+const PORT = process.env.PORT;
 
 app.listen(PORT,()=>console.log(`Server running on port ${PORT}`));
