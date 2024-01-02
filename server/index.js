@@ -7,7 +7,7 @@ const collection = 'az204';
 const db = 'quizzer';
 
 app.use(express.json());
-app.use(express.static('../public'));
+app.use(express.static('public'));
 
 import { run, insertRecord } from './mongoConnect.js';
 run().catch(console.error);
