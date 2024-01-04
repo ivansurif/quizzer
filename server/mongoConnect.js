@@ -1,4 +1,4 @@
-import { MongoClient, ServerApiVersion } from 'mongodb';
+import { MongoClient, ServerApiVersion, ObjectId } from 'mongodb';
 
 const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_SECRET}@quizzer.k78n1l2.mongodb.net/?retryWrites=true&w=majority`;
 
@@ -50,5 +50,35 @@ async function insertRecord(record, collection, db) {
         //   await client.close();
     }
   }
+
+
+  async function getRandomRecord(collection, db) {
+    try {
+        console.log(collection);
+        console.log(db);
+        // Connect to the "insertDB" database and access its "haiku" collection
+        const database = client.db(db);
+        const collection_ = database.collection(collection);
+        // const result = await collection_.distinct("projectName");
+        const result = await collection_.find({}, { projection: {_id: 1} }).toArray();
+        result.forEach(item => {
+          console.log(item._id.toString()); // This will log the string representation of the ObjectId
+      });
+        // console.log(result);
+        const randomIndex = Math.floor(Math.random() * result.length);
+        const randomId = result[randomIndex]._id; // This is an ObjectId
+        const randomIdString = randomId.toString();
+        console.log(randomIdString);
+        const record = await collection_.findOne({ _id: new ObjectId(randomIdString) });
+        return record
+    } catch (error) {
+        console.error("Error during record retrieval:", error);
+        throw error; // Rethrow the error to be handled by the caller
+    }
+    finally {
+       // Close the MongoDB client connection
+        //   await client.close();
+    }
+  }
 // Export the client and run function
-export { run, insertRecord };
+export { run, insertRecord, getRandomRecord };
