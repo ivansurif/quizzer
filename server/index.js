@@ -9,7 +9,7 @@ const db = 'quizzer';
 app.use(express.json());
 app.use(express.static('public'));
 
-import { run, insertRecord } from './mongoConnect.js';
+import { run, insertRecord, getRandomRecord } from './mongoConnect.js';
 run().catch(console.error);
 
 
@@ -36,12 +36,25 @@ app.post('/add-questions-manual', async (req, res) => {
 // });
 
 
+app.get('/getQuestion', async (req, res) => {
+    try {
+        const result = await getRandomRecord(collection, db);
+        res.status(200).json({ message: `Questions obtained successfully`, details: result });
+            // res.status(200).json({ message: `Questions added successfully`, details: result });
+        } catch (error) {
+            console.error(error);
+            // res.status(500).send('Error adding questions');
+        }
+    });
+
+
+
 app.post('/add-questions', (req, res) => {
     try {
         extractQuestions(req);
         res.status(200).send('Questions added successfully');
     } catch (error) {
-        res.status(500).send('Error adding questions');
+        res.status(500).send('Error getting questions');
     }
 });
 
